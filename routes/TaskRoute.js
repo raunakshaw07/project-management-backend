@@ -20,10 +20,10 @@ const getAllTask = async (req, res) => {
 const createTask = async (req, res) => { 
     try {
         const projectId = req.body.projectId;
-        const laneId = req.body.laneId;
+        const lane = req.body.lane;
         const title = req.body.title;
         const description = req.body.desc;
-        const task = { projectId, laneId, title, description }
+        const task = { projectId, lane, title, description }
         const newTask = new Tasks(task)
         const response = await newTask.save();
         if (!response)
@@ -43,9 +43,9 @@ const updateTask = async (req, res) => {
 
         const update = await Tasks.updateOne({ _id: id }, {
             $set: {
-                laneId: req.body.laneId,
+                lane: req.body.lane,
                 title: req.body.title,
-                description: req.body.desc,
+                description: req.body.description,
             }
         })
 

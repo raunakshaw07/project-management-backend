@@ -4,7 +4,7 @@ const TaskSchema = new mongoose.Schema({
     projectId: {
         type: String
     },
-    laneId: {
+    lane: {
         type: String
     },
     title: {

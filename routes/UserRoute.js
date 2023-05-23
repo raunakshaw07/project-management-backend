@@ -25,6 +25,7 @@ const createUser = async (req, res) => {
         const password = req.body.password;
 
         const response = await User.findOne({ email });
+
         if (response) 
             res.json({ status: false, msg: "User with this email already exist" })
         else {
